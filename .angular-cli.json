@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ng-morris"
+    "name": "angular-morris-js"
   },
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
+      "root": "demo/src",
+      "outDir": "demo/dist",
       "assets": [
         "assets",
         "favicon.ico"
@@ -19,9 +19,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../../node_modules/font-awesome/css/font-awesome.css",
+        "../../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../../node_modules/prismjs/themes/prism-tomorrow.css",
+        "../../node_modules/admin-lte/dist/css/AdminLTE.css",
+        "../../node_modules/admin-lte/dist/css/skins/_all-skins.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../../node_modules/jquery/dist/jquery.slim.js",
+        "../../node_modules/raphael/raphael.js",
+        "../../node_modules/morris.js/morris.js",
+        "../../node_modules/prismjs/prism.js",
+        "../../node_modules/prismjs/components/prism-typescript.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -36,11 +47,11 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
+      "project": "demo/src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },
     {
-      "project": "src/tsconfig.spec.json",
+      "project": "demo/src/tsconfig.spec.json",
       "exclude": "**/node_modules/**"
     },
     {
@@ -50,7 +61,7 @@
   ],
   "test": {
     "karma": {
-      "config": "./karma.conf.js"
+      "config": "./demo/karma.conf.js"
     }
   },
   "defaults": {

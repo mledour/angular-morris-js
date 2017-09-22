@@ -1,0 +1,25 @@
+<lte-wrapper>
+  <lte-header>
+    <lte-header-logo><b>Angular</b> Morris JS</lte-header-logo>
+    <lte-header-logo-mini><b>A</b>MJ</lte-header-logo-mini>
+  </lte-header>
+  <lte-sidebar-left>
+    <app-sidebar-left-inner></app-sidebar-left-inner>
+  </lte-sidebar-left>
+  <lte-content>
+    <div lte-content-before-header>
+      <div *mkLoadingPage="{checkPendingHttp: true, checkPendingRoute: true}">
+        <mk-material-bar></mk-material-bar>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </lte-content>
+  <lte-footer>
+    <lte-footer-left>
+      <strong>Demo powered by <a href="http://almsaeedstudio.com">AdminLte</a>.</strong>
+    </lte-footer-left>
+    <lte-footer-right>
+      <b>Version</b> 0.1.0
+    </lte-footer-right>
+  </lte-footer>
+</lte-wrapper>

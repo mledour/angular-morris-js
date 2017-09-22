@@ -1,0 +1,37 @@
+<lte-box lteTitle="About Angular Loading Page" [collapsable]="false" [removable]="false">
+  <p>Angular Morris JS is an implementation of Morrisjs for angular 2x & 4x.</p>
+</lte-box>
+
+<lte-box lteTitle="Download" [collapsable]="false" [removable]="false">
+  <p>Angular Morris JS is available at npm, if you have an existing application run the following command to download it to your project.</p>
+  <pre><code class="language-bash">npm install angular-morris-js --save</code></pre>
+  <p>Angular Morris JS is distributed in commonjs format, a module manager of your choice is required.</p>
+</lte-box>
+
+<lte-box lteTitle="Dependencies" [collapsable]="false" [removable]="false">
+  <p>Angular Morris JS require theses dependencies defined as <a href="https://nodejs.org/uk/blog/npm/peer-dependencies/" target="_blank">peerDependencies</a>:</p>
+  <ul>
+    <li>jQuery</li>
+    <li>Raphael</li>
+    <li>Morris.js</li>
+  </ul>
+  <br/>
+  <p>you'll need to install theses Dependencies:</p>
+  <pre><code class="language-bash">npm install --save jquery raphael morris.js</code></pre>
+  <br/>
+  <p>Then include these scripts in your app:</p>
+  <pre><code class="language-typescript">"scripts": [
+  "../../node_modules/jquery/dist/jquery.slim.js",
+  "../../node_modules/raphael/raphael.js",
+  "../../node_modules/morris.js/morris.js"
+],</code></pre>
+</lte-box>
+
+<lte-box lteTitle="Import" [collapsable]="false" [removable]="false">
+  <p>UI components are configured as modules, once Angular Morris JS is downloaded and configured, modules and apis can be imported from 'angular-morris-js' shorthand in your application code.</p>
+  <pre><code class="language-typescript">import &#123; MorrisJsModule &#125; from 'angular-morris-js';</code></pre>
+</lte-box>
+
+<lte-box lteTitle="Usage" [collapsable]="false" [removable]="false">
+  <p>See chart examples on the sidebar left menu.</p>
+</lte-box>
