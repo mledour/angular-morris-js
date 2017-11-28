@@ -1,6 +1,6 @@
 {
   "name": "angular-morris-js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mika-el/angular-morris-js"
@@ -10,22 +10,20 @@
     "email": "michael.ledour@gmail.com"
   },
   "keywords": [
-    "angular"
+    "angular",
+    "angular 4",
+    "angular 5",
+    "typescript",
+    "admin-lte"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mika-el/angular-morris-js/issues"
   },
-  "main": "angular-morris-js.umd.js",
-  "module": "angular-morris-js.js",
-  "jsnext:main": "angular-morris-js.js",
-  "typings": "angular-morris-js.d.ts",
   "peerDependencies": {
     "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4",
-    "jquery": "^3.2.1",
     "morris.js": "^0.5.0",
+    "jquery": "^3.2.1",
     "raphael": "^2.2.7"
   }
 }

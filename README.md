@@ -1,6 +1,10 @@
-# angular-loading-page
+# angular-admin-lte
 
-Morris.js implementation for angular 2x & 4x
+MorrisJs implementation for Angular 4+
+
+## Doc & Demo
+[https://mika-el.github.io/angular-morris-js/](https://mika-el.github.io/angular-morris-js/)
+
 
 ## Installation
 
@@ -10,12 +14,32 @@ To install this library, run:
 $ npm install angular-morris-js --save
 ```
 
-## Consuming your library
 
-See Library [homepage](https://mika-el.github.io/angular-morris-js/#/)
+## Install demo
+```bash
+$ git clone git://github.com/mika-el/angular-morris-js
+$ cd angular-morris-js
+$ npm install
+```
+
+
+## Run demo
+```bash
+$ ng serve
+```
+
+## Build demo
+```bash
+$ ng build --prod
+```
+
+## Build dist
+```bash
+$ npm run build:lib
+```
 
 ## Dependencies
 
-* [jQuery](https://www.npmjs.com/package/jquery)
-* [Raphael](https://www.npmjs.com/package/raphael)
-* [Morris.js](https://github.com/morrisjs/morris.js)
+* morris.js
+* jquery
+* raphael

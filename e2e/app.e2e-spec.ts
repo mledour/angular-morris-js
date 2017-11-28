@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ng-morris App', () => {
+describe('angular-morris-js App', () => {
   let page: AppPage;
 
   beforeEach(() => {

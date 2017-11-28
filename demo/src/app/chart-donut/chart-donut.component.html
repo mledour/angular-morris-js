@@ -1,12 +1,12 @@
-<lte-box lteTitle="Demo" [collapsable]="false" [removable]="false">
+<mk-box lteTitle="Demo" [isCollapsable]="false" [isRemovable]="false">
   <div mk-morris-js [options]="chartDonutOptions" [data]="chartDonutData" type="Donut" style="height: 500px; width: 100%;"></div>
-</lte-box>
+</mk-box>
 
-<lte-box lteTitle="Usage" [collapsable]="false" [removable]="false">
+<mk-box lteTitle="Usage" [isCollapsable]="false" [isRemovable]="false">
   <pre><code class="language-html">&lt;div mk-morris-js [options]="chartDonutOptions" [data]="chartDonutData" type="Donut"&gt;&lt;/div&gt;</code></pre>
-</lte-box>
+</mk-box>
 
-<lte-box lteTitle="Datas" [collapsable]="true" [removable]="false">
+<mk-box lteTitle="Datas" [isCollapsable]="true" [isRemovable]="false">
   <p>
     This is an array of objects, containing x and y attributes as described by the <code>xkey</code> and <code>ykeys</code> options.
     <br>
@@ -22,9 +22,9 @@
   &#123;label: "In-Store Sales", value: 30&#125;,
   &#123;label: "Mail-Order Sales", value: 20&#125;
 ];</code></pre>
-</lte-box>
+</mk-box>
 
-<lte-box lteTitle="Options" [collapsable]="true" [removable]="false">
+<mk-box lteTitle="Options" [isCollapsable]="true" [isRemovable]="false">
   <table class="table table-striped table-bordered">
     <tbody>
       <tr>
@@ -64,4 +64,4 @@
       </tr>
     </tbody>
   </table>
-</lte-box>
+</mk-box>

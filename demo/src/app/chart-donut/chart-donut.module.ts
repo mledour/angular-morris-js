@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BoxModule } from '../ng-admin-lte';
+import { BoxModule } from 'angular-admin-lte';
 
-import { MorrisJsModule } from '../angular-morris-js';
+import { MorrisJsModule } from '../src';
 
 import { ChartDonutRoutingModule } from './chart-donut-routing.module';
 import { ChartDonutComponent } from './chart-donut.component';

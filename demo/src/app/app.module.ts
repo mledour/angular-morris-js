@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { adminLteConf } from './admin-lte.conf';
-import { LayoutModule, BoxModule } from './ng-admin-lte';
+import { LayoutModule, BoxModule } from 'angular-admin-lte';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

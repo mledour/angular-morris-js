@@ -22,7 +22,7 @@ const routes: Routes = [
         data: {
           title: 'Area Chart',
           icon: '',
-          breadcrumb: 'area chart'
+          breadcrumbs: 'area chart'
         }
       },
       {
@@ -31,7 +31,7 @@ const routes: Routes = [
         data: {
           title: 'Line Chart',
           icon: '',
-          breadcrumb: 'line chart'
+          breadcrumbs: 'line chart'
         }
       },
       {
@@ -40,7 +40,7 @@ const routes: Routes = [
         data: {
           title: 'bar Chart',
           icon: '',
-          breadcrumb: 'bar chart'
+          breadcrumbs: 'bar chart'
         }
       },
       {
@@ -49,7 +49,7 @@ const routes: Routes = [
         data: {
           title: 'Donut Chart',
           icon: '',
-          breadcrumb: 'donut chart'
+          breadcrumbs: 'donut chart'
         }
       }
     ]
