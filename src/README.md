@@ -1,4 +1,4 @@
-# angular-admin-lte
+# angular-morris-js
 
 MorrisJs implementation for Angular 4+
 
