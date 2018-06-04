@@ -1,6 +1,6 @@
 
 export interface ChartData {
-  key: string;
+  label: string;
   value: number;
 }
 
