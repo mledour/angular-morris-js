@@ -42,7 +42,7 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
    */
   ngAfterViewInit() {
     if(!this.window.Morris) {
-      throw new Error('Please include nodes_modules/morris.js/morris.js');
+      throw new Error('Please include node_modules/morris.js/morris.js');
     } else {
       this.ngZone.runOutsideAngular(() => {
         this.chartInstance = new this.window.Morris[this.type](this._options);
