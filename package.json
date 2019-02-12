@@ -1,5 +1,5 @@
 {
-  "name": "angular-morris-js",
+  "name": "angular-morris-js-demo",
   "version": "0.3.0",
   "keywords": [
     "angular",
@@ -16,13 +16,17 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:lib": "ng-packagr -p src/ng-package.json"
+    "libCopyFiles": "cp README.md LICENSE dist",
+    "build:lib": "ng-packagr -p src/ng-package.json && npm run libCopyFiles"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mika-el/angular-morris-js.git"
+    "url": "git://github.com/mledour/angular-morris-js.git"
   },
-  "private": false,
+  "release": {
+    "pkgRoot": "dist/ngx-testing-library"
+  },
+  "private": true,
   "dependencies": {
     "@angular/animations": "6.0.0",
     "@angular/common": "6.0.0",
@@ -34,7 +38,8 @@
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/router": "6.0.0",
     "core-js": "^2.4.1",
-    "rxjs": "^6.1.0",
+    "global": "^4.3.2",
+    "rxjs": "~6.3.3",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -42,7 +47,7 @@
     "@angular/cli": "6.0.0",
     "@angular/compiler-cli": "6.0.0",
     "@angular/language-service": "6.0.0",
-    "@types/jasmine": "~2.8.3",
+    "@types/jasmine": "2.8.9",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "admin-lte": "^2.4.2",
@@ -63,6 +68,7 @@
     "prismjs": "^1.11.0",
     "protractor": "~5.1.2",
     "raphael": "^2.2.7",
+    "semantic-release": "^15.13.3",
     "ts-node": "~4.1.0",
     "tslint": "5.10.0",
     "typescript": "2.7.2"

@@ -3,7 +3,7 @@
 MorrisJs implementation for Angular 4+
 
 ## Doc & Demo
-[https://mika-el.github.io/angular-morris-js/](https://mika-el.github.io/angular-morris-js/)
+[https://mledour.github.io/angular-morris-js/](https://mledour.github.io/angular-morris-js/)
 
 
 ## Installation
@@ -17,7 +17,7 @@ $ npm install angular-morris-js --save
 
 ## Install demo
 ```bash
-$ git clone git://github.com/mika-el/angular-morris-js
+$ git clone git://github.com/mledour/angular-morris-js
 $ cd angular-morris-js
 $ npm install
 ```

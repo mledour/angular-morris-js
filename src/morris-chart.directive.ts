@@ -18,8 +18,8 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
   /**
    * [constructor description]
    * @method constructor
-   * @param  {ElementRef} private elementRef [description]
-   * @param  {NgZone}     private ngZone     [description]
+   * @param elementRef [description]
+   * @param ngZone     [description]
    */
   constructor(
     private elementRef: ElementRef,
@@ -53,7 +53,7 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
   /**
    * [ngOnChanges description]
    * @method ngOnChanges
-   * @param  {SimpleChanges} changes [description]
+   * @param changes [description]
    */
   ngOnChanges(changes: SimpleChanges) {
     if(changes.data && !changes.data.firstChange) {

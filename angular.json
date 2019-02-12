@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-morris-js": {
+    "angular-morris-js-demo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "demo/dist",
+            "outputPath": "dist/angular-morris-js-demo",
             "index": "demo/src/index.html",
             "main": "demo/src/main.ts",
             "tsConfig": "demo/src/tsconfig.app.json",

@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mika-el/angular-morris-js"
+    "url": "https://github.com/mledour/angular-morris-js"
   },
   "author": {
     "name": "Mik@",
@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mika-el/angular-morris-js/issues"
+    "url": "https://github.com/mledour/angular-morris-js/issues"
   },
   "peerDependencies": {
     "@angular/core": "^4.0.0",
