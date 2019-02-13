@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-morris-js:build"
+            "browserTarget": "angular-morris-js-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-morris-js:build:production"
+              "browserTarget": "angular-morris-js-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-morris-js:build"
+            "browserTarget": "angular-morris-js-demo:build"
           }
         },
         "test": {
@@ -115,7 +115,7 @@
         }
       }
     },
-    "angular-morris-js-e2e": {
+    "angular-morris-js-demo-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -124,7 +124,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-morris-js:serve"
+            "devServerTarget": "angular-morris-js-demo:serve"
           }
         },
         "lint": {
@@ -141,7 +141,7 @@
       }
     }
   },
-  "defaultProject": "angular-morris-js",
+  "defaultProject": "angular-morris-js-demo",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
