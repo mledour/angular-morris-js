@@ -15,7 +15,7 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
   @Input() options: ChartOptions;
   @Input() data: ChartDatas;
 
-  /**
+  /*
    * [constructor description]
    * @method constructor
    * @param elementRef [description]
@@ -26,7 +26,7 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
     private ngZone: NgZone
   ) {}
 
-  /**
+  /*
    * [ngOnInit description]
    * @method ngOnInit
    */
@@ -36,7 +36,7 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
     this._options.data = this.data;
   }
 
-  /**
+  /*
    * [ngAfterViewInit description]
    * @method ngAfterViewInit
    */
@@ -50,18 +50,19 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
     }
   }
 
-  /**
+  /*
    * [ngOnChanges description]
    * @method ngOnChanges
    * @param changes [description]
    */
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.data && !changes.data.firstChange) {
+    if((changes.data && !changes.data.firstChange) || (changes.options && !changes.options.firstChange)) {
+      Object.assign(this.chartInstance.options, this.options);
       this.chartInstance.setData(this.data);
     }
   }
 
-  /**
+  /*
    * [ngOnDestroy description]
    * @method ngOnDestroy
    */
