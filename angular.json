@@ -26,6 +26,7 @@
               "node_modules/prismjs/themes/prism-tomorrow.css",
               "node_modules/admin-lte/dist/css/AdminLTE.css",
               "node_modules/admin-lte/dist/css/skins/_all-skins.css",
+              "node_modules/morris.js/morris.css",
               "demo/src/styles.css"
             ],
             "scripts": [
