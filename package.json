@@ -24,7 +24,7 @@
     "url": "git://github.com/mledour/angular-morris-js.git"
   },
   "release": {
-    "pkgRoot": "dist/ngx-testing-library"
+    "pkgRoot": "dist/angular-morris-js"
   },
   "private": true,
   "dependencies": {
