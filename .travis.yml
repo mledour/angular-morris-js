@@ -35,7 +35,6 @@ after_success:
 
 before_deploy:
   - cp README.md LICENSE dist/angular-morris-js
-  - cd dist/angular-morris-js
 
 deploy:
   provider: script
