@@ -47,9 +47,8 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
     } else {
       this.ngZone.runOutsideAngular(() => {
         this.chartInstance = new this.window.Morris[this.type](this._options);
-        let my_this = this;
-        this.chartInstance.on('click', function(i, row) { 
-          my_this.clickChart.emit({ event, i, row });
+        this.chartInstance.on('click', (i, row) => { 
+          this.clickChart.emit({ event, i, row });
         });
       });
     }
