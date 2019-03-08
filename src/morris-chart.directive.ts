@@ -71,7 +71,7 @@ export class MorrisChartDirective implements OnInit, AfterViewInit, OnChanges, O
    * @method ngOnDestroy
    */
   ngOnDestroy() {
-    if (this.chartInstance.el.empty instanceof Function) {
+    if (this.chartInstance && this.chartInstance.el.empty instanceof Function) {
       this.chartInstance.el.empty();
     }
   }
