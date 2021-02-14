@@ -1,32 +1,26 @@
-
-export interface ChartData {
+export interface ChartDonutData {
   label: string;
   value: number;
 }
 
-export interface ChartDatas {
-    [key: string]: ChartData;
+export interface ChartBarData {
+  [key: string]: unknown
 }
 
-export interface ChartOptions {
-  element: Element;
-  data: ChartDatas;
+export type ChartLineData = ChartBarData;
+
+export type ChartAreaData = ChartBarData;
+
+export interface ChartDonutOptions {
+  colors?: string[];
+  formatter?: (y: number, data: ChartDonutData) => string;
   resize?: boolean;
 }
 
-
-export interface ChartDonutOptions extends ChartOptions {
-  colors?: Array<string>;
-  formater?: (y, data) => string;
-  resize?: boolean;
-}
-
-export interface ChartAreaBarLineOptions {
-  xkey: string,
-  ykeys: Array<string>;
-  labels: Array<string>;
-  hideHover?: boolean|string;
-  hoverCallback?: (index, options, content, row) => void;
+interface BaseChartAreaBarLineOptions {
+  ykeys: string[];
+  labels: string[];
+  hideHover?: boolean | 'auto' | 'always';
   axes?: boolean;
   grid?: boolean;
   gridTextColor?: string;
@@ -36,23 +30,22 @@ export interface ChartAreaBarLineOptions {
   fillOpacity?: number;
 }
 
-export interface ChartAreaOptions extends ChartAreaBarLineOptions {
-  behaveLikeLine?: boolean;
-}
-
-export interface ChartBarOptions extends ChartAreaBarLineOptions {
-  barColors?: Array<string>;
+export interface ChartBarOptions extends BaseChartAreaBarLineOptions {
+  xkey: string;
+  barColors?: string[];
   stacked?: boolean;
+  hoverCallback?: (index: number, options: BaseChartAreaBarLineOptions, content: string, row: ChartBarData) => void;
 }
 
-export interface ChartLineOptions extends ChartAreaBarLineOptions {
-  lineColors?: Array<string>;
+export interface ChartLineOptions extends BaseChartAreaBarLineOptions {
+  xkey: string | Date;
+  lineColors?: string[];
   lineWidth?: number;
   pointSize?: number;
   pointFillColors?: string;
   pointStrokeColors?: string;
-  ymax?: string|number;
-  ymin?: string|number;
+  ymax?: string | number;
+  ymin?: string | number;
   smooth?: boolean;
   postUnits?: string;
   preUnits?: string;
@@ -60,12 +53,17 @@ export interface ChartLineOptions extends ChartAreaBarLineOptions {
   xLabels?: string;
   xLabelFormat?: (date: Date) => string;
   xLabelAngle?: number;
-  yLabelFormat?: (label: string|number) => string;
-  goals?: Array<number>;
+  yLabelFormat?: (label: string | number) => string;
+  goals?: string[];
   goalStrokeWidth?: number;
   goalLineColors?: string;
-  events?: Array<number>;
+  events?: string[];
   eventStrokeWidth?: number;
-  eventLineColors?: Array<string>;
+  eventLineColors?: string[];
   continuousLine?: boolean;
 }
+
+export interface ChartAreaOptions extends ChartLineOptions {
+  behaveLikeLine?: boolean;
+}
+
