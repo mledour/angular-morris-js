@@ -1,25 +1,29 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "library",
   "projects": {
     "angular-morris-js-demo": {
-      "root": "",
-      "sourceRoot": "src",
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "demo",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/angular-morris-js-demo",
-            "index": "demo/src/index.html",
-            "main": "demo/src/main.ts",
-            "tsConfig": "demo/src/tsconfig.app.json",
-            "polyfills": "demo/src/polyfills.ts",
-            "assets": [
-              { "glob": "**/*", "input": "demo/src/assets/", "output": "/assets/" },
-              { "glob": "favicon.ico", "input": "demo/src", "output": "/" }
-            ],
+            "index": "demo/index.html",
+            "main": "demo/main.ts",
+            "polyfills": "demo/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": ["demo/favicon.ico", "demo/assets"],
             "styles": [
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -27,7 +31,7 @@
               "node_modules/admin-lte/dist/css/AdminLTE.css",
               "node_modules/admin-lte/dist/css/skins/_all-skins.css",
               "node_modules/morris.js/morris.css",
-              "demo/src/styles.css"
+              "demo/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.js",
@@ -39,19 +43,29 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "demo/environments/environment.ts",
+                  "with": "demo/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "fileReplacements": [
+              "budgets": [
                 {
-                  "replace": "demo/src/environments/environment.ts",
-                  "with": "demo/src/environments/environment.prod.ts"
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -77,79 +91,79 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "demo/src/test.ts",
-            "karmaConfig": "./karma.conf.js",
-            "polyfills": "demo/src/polyfills.ts",
-            "tsConfig": "demo/src/tsconfig.spec.json",
-            "scripts": [
-              "node_modules/jquery/dist/jquery.slim.js",
-              "node_modules/raphael/raphael.js",
-              "node_modules/morris.js/morris.js",
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-typescript.js"
-            ],
-            "styles": [
-              "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/prismjs/themes/prism-tomorrow.css",
-              "node_modules/admin-lte/dist/css/AdminLTE.css",
-              "node_modules/admin-lte/dist/css/skins/_all-skins.css",
-              "demo/src/styles.css"
-            ],
-            "assets": [
-              "demo/src/assets",
-              "demo/src/favicon.ico"
-            ]
+            "main": "demo/test.ts",
+            "polyfills": "demo/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": ["demo/favicon.ico", "demo/assets"],
+            "styles": ["demo/styles.scss"],
+            "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "demo/src/tsconfig.app.json",
-              "demo/src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "angular-morris-js-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-morris-js-demo:serve:production"
+            }
           }
         }
       }
     },
-    "angular-morris-js-demo-e2e": {
-      "root": "",
-      "sourceRoot": "",
-      "projectType": "application",
+    "angular-morris-js": {
+      "projectType": "library",
+      "root": "library",
+      "sourceRoot": "library/src",
+      "prefix": "mk",
       "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-morris-js-demo:serve"
+            "tsConfig": "library/tsconfig.lib.json",
+            "project": "library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "library/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "library/src/test.ts",
+            "tsConfig": "library/tsconfig.spec.json",
+            "karmaConfig": "library/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["library/tsconfig.lib.json", "library/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "angular-morris-js-demo",
+  "cli": {
+    "packageManager": "yarn"
+  },
   "schematics": {
     "@schematics/angular:component": {
-      "prefix": "app",
-      "styleext": "css"
-    },
-    "@schematics/angular:directive": {
-      "prefix": "app"
+      "styleext": "scss"
     }
-  }
+  },
+  "defaultProject": "angular-morris-js-demo"
 }

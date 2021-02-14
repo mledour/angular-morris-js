@@ -53,4 +53,3 @@ cd $newPath
 git add -A
 git commit -m "Travis commit"
 git push --force -u origin gh-pages
-

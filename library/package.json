@@ -1,29 +1,30 @@
 {
   "name": "angular-morris-js",
   "version": "0.3.0",
+  "homepage": "https://mledour.github.io/angular-morris-js/branches/master/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mledour/angular-morris-js"
+    "url": "git://github.com/mledour/angular-morris-js.git"
   },
   "author": {
-    "name": "Mik@",
+    "name": "mledour",
     "email": "michael.ledour@gmail.com"
   },
   "keywords": [
-    "angular",
-    "angular 4",
-    "angular 5",
-    "typescript",
-    "admin-lte"
+    "angular"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mledour/angular-morris-js/issues"
   },
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
+    "@angular/common": "~11.1.0",
+    "@angular/core": "~11.1.0",
     "morris.js": "^0.5.0",
     "jquery": "^3.2.1",
     "raphael": "^2.2.7"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }

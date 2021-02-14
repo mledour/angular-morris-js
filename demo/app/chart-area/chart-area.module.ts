@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BoxModule } from 'angular-admin-lte';
 
-import { MorrisJsModule } from '../../../../src';
+import { MorrisJsModule } from 'angular-morris-js';
 
 import { ChartAreaRoutingModule } from './chart-area-routing.module';
 import { ChartAreaComponent } from './chart-area.component';

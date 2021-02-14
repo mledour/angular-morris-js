@@ -18,7 +18,7 @@ const routes: Routes = [
       },
       {
         path: 'area-chart',
-        loadChildren: 'app/chart-area/chart-area.module#ChartAreaModule',
+        loadChildren: () => import('./chart-area/chart-area.module').then(m => m.ChartAreaModule),
         data: {
           title: 'Area Chart',
           icon: '',
@@ -27,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: 'line-chart',
-        loadChildren: 'app/chart-line/chart-line.module#ChartLineModule',
+        loadChildren: () => import('./chart-line/chart-line.module').then(m => m.ChartLineModule),
         data: {
           title: 'Line Chart',
           icon: '',
@@ -36,7 +36,7 @@ const routes: Routes = [
       },
       {
         path: 'bar-chart',
-        loadChildren: 'app/chart-bar/chart-bar.module#ChartBarModule',
+        loadChildren: () => import('./chart-bar/chart-bar.module').then(m => m.ChartBarModule),
         data: {
           title: 'bar Chart',
           icon: '',
@@ -45,7 +45,7 @@ const routes: Routes = [
       },
       {
         path: 'donut-chart',
-        loadChildren: 'app/chart-donut/chart-donut.module#ChartDonutModule',
+        loadChildren: () => import('./chart-donut/chart-donut.module').then(m => m.ChartDonutModule),
         data: {
           title: 'Donut Chart',
           icon: '',
