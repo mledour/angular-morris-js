@@ -1,4 +1,4 @@
-export var adminLteConf = {
+export const adminLteConf = {
   isLeftSidebarCollapsed: true,
   skin: 'blue',
   sidebarLeftMenu: [
