@@ -1,30 +1,31 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { chartLineData, chartLineOptions } from './morris-js-line';
-
-declare var Prism;
+import * as Prism from 'prismjs';
 
 @Component({
   selector: 'app-chart-line',
   templateUrl: './chart-line.component.html',
   styleUrls: ['./chart-line.component.css']
 })
-export class ChartLineComponent implements OnInit, AfterViewInit {
-  public chartLineData;
-  public chartLineOptions;
+export class ChartLineComponent implements AfterViewInit {
+  public chartLineOptions = {
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Series A', 'Series B'],
+    resize: true,
+  };
 
-  /**
-   * @method ngOnInit
-   */
-  ngOnInit() {
-    this.chartLineData = chartLineData;
-    this.chartLineOptions = chartLineOptions;
-  }
+  public chartLineData = [
+    { y: '2006', a: 100, b: 90 },
+    { y: '2007', a: 75,  b: 65 },
+    { y: '2008', a: 50,  b: 40 },
+    { y: '2009', a: 75,  b: 65 },
+    { y: '2010', a: 50,  b: 40 },
+    { y: '2011', a: 75,  b: 65 },
+    { y: '2012', a: 100, b: 90 }
+  ];
 
-  /**
-   * @method ngAfterViewInit
-   */
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     Prism.highlightAll();
   }
 }

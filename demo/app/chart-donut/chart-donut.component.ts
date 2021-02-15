@@ -1,30 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit } from '@angular/core';
 
-import { chartDonutData, chartDonutOptions } from './morris-js-donut';
-
-declare var Prism;
+import * as Prism from 'prismjs';
 
 @Component({
   selector: 'app-chart-donut',
   templateUrl: './chart-donut.component.html',
   styleUrls: ['./chart-donut.component.css']
 })
-export class ChartDonutComponent implements OnInit {
-  public chartDonutData;
-  public chartDonutOptions;
+export class ChartDonutComponent implements AfterViewInit {
+  public chartDonutOptions = {
+    resize: true,
+    toto: 'roro'
+  };
 
-  /**
-   * @method ngOnInit
-   */
-  ngOnInit() {
-    this.chartDonutData = chartDonutData;
-    this.chartDonutOptions = chartDonutOptions;
-  }
+  public chartDonutData = [
+    {label: "Download Sales", value: 12},
+    {label: "In-Store Sales", value: 30},
+    {label: "Mail-Order Sales", value: 20}
+  ];
 
-  /**
-   * @method ngAfterViewInit
-   */
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     Prism.highlightAll();
   }
 }

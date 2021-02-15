@@ -1,30 +1,31 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { chartAreaOptions, chartAreaData } from './morris-js-area';
-
-declare var Prism;
+import * as Prism from 'prismjs';
 
 @Component({
   selector: 'app-chart-area',
   templateUrl: './chart-area.component.html',
   styleUrls: ['./chart-area.component.css']
 })
-export class ChartAreaComponent implements OnInit, AfterViewInit {
-  public chartAreaData;
-  public chartAreaOptions;
+export class ChartAreaComponent implements AfterViewInit {
+  public chartAreaOptions = {
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Series A', 'Series B'],
+    resize: true
+  };
 
-  /**
-   * @method ngOnInit
-   */
-  ngOnInit() {
-    this.chartAreaOptions = chartAreaOptions;
-    this.chartAreaData = chartAreaData;
-  }
+  public chartAreaData = [
+    { y: '2006', a: 100, b: 90 },
+    { y: '2007', a: 75,  b: 65 },
+    { y: '2008', a: 50,  b: 40 },
+    { y: '2009', a: 75,  b: 65 },
+    { y: '2010', a: 50,  b: 40 },
+    { y: '2011', a: 75,  b: 65 },
+    { y: '2012', a: 100, b: 90 }
+  ];
 
-  /**
-   * @method ngAfterViewInit
-   */
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     Prism.highlightAll();
   }
 }
