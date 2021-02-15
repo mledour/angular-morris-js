@@ -20,6 +20,7 @@ before_script:
   - yarn global add @angular/cli
 
 script:
+  - commitlint-travis
   - yarn prettier:check
   - ng lint angular-morris-js
   - ng build angular-morris-js --prod
