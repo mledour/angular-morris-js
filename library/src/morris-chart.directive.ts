@@ -32,7 +32,7 @@ type ChartConfig<Options, Data> = Options & BaseChartConfig<Data>;
 
 @Directive()
 export class BaseMorrisChartDirective<Options, Data> implements AfterViewInit, OnChanges, OnDestroy {
-  @Input() type!: 'Line' | 'Area' | 'Bar' | 'Donut';
+  @Input() mkMorrisJs!: 'Line' | 'Area' | 'Bar' | 'Donut';
   @Output() clickChart = new EventEmitter();
 
   public chartInstance: any;
@@ -57,7 +57,7 @@ export class BaseMorrisChartDirective<Options, Data> implements AfterViewInit, O
       ) as ChartConfig<Options, Data>;
 
       this.ngZone.runOutsideAngular(() => {
-        this.chartInstance = new this.window.Morris[this.type](this.morrisConfig);
+        this.chartInstance = new this.window.Morris[this.mkMorrisJs](this.morrisConfig);
         this.chartInstance.on('click', (index: number, row: unknown) => {
           this.clickChart.emit({ event, index, row });
         });
@@ -80,7 +80,7 @@ export class BaseMorrisChartDirective<Options, Data> implements AfterViewInit, O
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Line"]',
+  selector: '[mkMorrisJs="Line"]',
 })
 export class MorrisLineChartDirective extends BaseMorrisChartDirective<ChartLineOptions, ChartLineData[]> {
   @Input() options!: ChartLineOptions;
@@ -88,7 +88,7 @@ export class MorrisLineChartDirective extends BaseMorrisChartDirective<ChartLine
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Bar"]',
+  selector: '[mkMorrisJs="Bar"]',
 })
 export class MorrisBarChartDirective extends BaseMorrisChartDirective<ChartBarOptions, ChartBarData[]> {
   @Input() options!: ChartBarOptions;
@@ -96,7 +96,7 @@ export class MorrisBarChartDirective extends BaseMorrisChartDirective<ChartBarOp
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Donut"]',
+  selector: '[mkMorrisJs="Donut"]',
 })
 export class MorrisDonutChartDirective extends BaseMorrisChartDirective<ChartDonutOptions, ChartDonutData[]> {
   @Input() options!: ChartDonutOptions;
@@ -104,7 +104,7 @@ export class MorrisDonutChartDirective extends BaseMorrisChartDirective<ChartDon
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Area"]',
+  selector: '[mkMorrisJs="Area"]',
 })
 export class MorrisAreaChartDirective extends BaseMorrisChartDirective<ChartAreaOptions, ChartAreaData[]> {
   @Input() options!: ChartAreaOptions;
