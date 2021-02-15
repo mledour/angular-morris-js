@@ -7,15 +7,15 @@ oldPath="$tmpDir/old"
 newPath="$tmpDir/new"
 
 # Get the opened pull requests
-jsonPulls=$(curl -k -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/pulls?state=open)
+jsonPulls=$(curl -k -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/pulls?state=open)
 arrPulls=$(jq -n "$jsonPulls" | jq -r '.[].number')
 
 # Get the active branches
-jsonBranches=$(curl -k -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/branches?state=open)
+jsonBranches=$(curl -k -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/branches?state=open)
 arrBranches=$(jq -n "$jsonBranches" | jq -r '.[].name')
 
 # Clone gh-pages to tmpDir
-git clone --quiet --single-branch -b gh-pages https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git ${oldPath}
+git clone --quiet --single-branch -b gh-pages https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git ${oldPath}
 
 # Clean old git folder
 if [ "$TRAVIS_PULL_REQUEST" != false ] ; then
@@ -53,3 +53,4 @@ cd $newPath
 git add -A
 git commit -m "Travis commit"
 git push --force -u origin gh-pages
+
