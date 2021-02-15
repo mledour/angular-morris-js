@@ -1,13 +1,6 @@
 {
   "name": "angular-morris-js-demo",
   "version": "0.0.0-semantic-release",
-  "keywords": [
-    "angular",
-    "angular 4",
-    "angular 5",
-    "typescript",
-    "admin-lte"
-  ],
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -19,10 +12,6 @@
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "prettier:check": "prettier --config .prettierrc.yml --check --ignore-unknown .",
     "prettier:write": "prettier --config .prettierrc.yml --write --ignore-unknown ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mledour/angular-morris-js.git"
   },
   "private": true,
   "dependencies": {
