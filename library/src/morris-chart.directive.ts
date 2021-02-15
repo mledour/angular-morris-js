@@ -55,7 +55,7 @@ export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterVie
   }
 
   ngOnDestroy(): void {
-    if (this.chartInstance.el.empty instanceof Function) {
+    if (this.chartInstance?.el?.empty instanceof Function) {
       this.chartInstance.el.empty();
     }
   }
