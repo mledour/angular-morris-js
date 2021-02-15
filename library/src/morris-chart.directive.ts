@@ -70,7 +70,7 @@ export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterVie
   ngOnChanges(changes: SimpleChanges): void {
     if ((changes.data && !changes.data.firstChange) || (changes.options && !changes.options.firstChange)) {
       Object.assign(this.chartInstance.options, this.options);
-      this.chartInstance.setData(this.data);
+      this.ngZone.runOutsideAngular(() => this.chartInstance.setData(this.data));
     }
   }
 
