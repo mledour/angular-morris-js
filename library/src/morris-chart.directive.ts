@@ -31,7 +31,7 @@ interface BaseChartConfig<Data> {
 type ChartConfig<Options, Data> = Options & BaseChartConfig<Data>;
 
 @Directive()
-export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterViewInit, OnChanges, OnDestroy {
+export class BaseMorrisChartDirective<Options, Data> implements AfterViewInit, OnChanges, OnDestroy {
   @Input() type!: 'Line' | 'Area' | 'Bar' | 'Donut';
   @Output() clickChart = new EventEmitter();
 
@@ -44,20 +44,18 @@ export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterVie
 
   constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
 
-  ngOnInit(): void {
-    this.morrisConfig = Object.assign(
-      {
-        element: this.elementRef.nativeElement,
-        data: this.data,
-      },
-      this.options
-    ) as ChartConfig<Options, Data>;
-  }
-
   ngAfterViewInit(): void {
     if (!this.window.Morris) {
       throw new Error('Please include node_modules/morris.js/morris.js');
     } else {
+      this.morrisConfig = Object.assign(
+        {
+          element: this.elementRef.nativeElement,
+          data: this.data,
+        },
+        this.options
+      ) as ChartConfig<Options, Data>;
+
       this.ngZone.runOutsideAngular(() => {
         this.chartInstance = new this.window.Morris[this.type](this.morrisConfig);
         this.chartInstance.on('click', (index: number, row: unknown) => {
