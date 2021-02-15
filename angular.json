@@ -33,12 +33,7 @@
               "node_modules/morris.js/morris.css",
               "demo/styles.scss"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.slim.js",
-              "node_modules/raphael/raphael.js",
-              "node_modules/morris.js/morris.js",
-              "node_modules/prismjs/components/prism-typescript.js"
-            ]
+            "scripts": ["node_modules/jquery/dist/jquery.slim.js", "node_modules/raphael/raphael.js", "node_modules/morris.js/morris.js"]
           },
           "configurations": {
             "production": {
