@@ -1,12 +1,12 @@
 language: node_js
 node_js:
-  - "10"
+  - lts/*
 dist: trusty
-sudo: false
+os: linux
 
 env:
   global:
-  - TMPDIR=/tmp
+    - TMPDIR=/tmp
 
 cache:
   yarn: true
@@ -18,28 +18,28 @@ addons:
 
 before_script:
   - yarn global add @angular/cli
-  - yarn global add coveralls
 
 script:
-  # - ng lint angular-morris-js-demo
-  # - ng lint angular-morris-js
-  # - ng test angular-morris-js-demo --watch=false --browsers=ChromeHeadless --code-coverage
-  # - ng test angular-admin-lte --watch=false --browsers=ChromeHeadless
+  - commitlint-travis
+  - yarn prettier:check
+  - ng lint angular-morris-js
+  - ng build angular-morris-js --prod
+  - ng lint angular-morris-js-demo
   - ng build angular-morris-js-demo --prod --base-href="/angular-morris-js/$([ "$TRAVIS_PULL_REQUEST" != false ] && echo "pulls/$TRAVIS_PULL_REQUEST/" || echo "branches/$TRAVIS_BRANCH/")"
-  - yarn build:lib
   # - xvfb-run npm run e2e
 
 after_success:
-  - # cat coverage/lcov.info | coveralls
-  - bash scripts/gh-pages.sh $TMPDIR/gh-pages $TRAVIS_BUILD_DIR/dist/angular-morris-js-demo
+  - bash scripts/travis-gh-pages.sh $TMPDIR/gh-pages $TRAVIS_BUILD_DIR/dist/angular-morris-js-demo
+
+before_install:
+  - npm install -g yarn
 
 before_deploy:
-  - cp README.md LICENSE dist/angular-morris-js
+  - ng build angular-morris-js --prod
 
 deploy:
   provider: script
+  script: npx semantic-release
   skip_cleanup: true
   on:
-    branch: master
-  script:
-    - npx semantic-release
+    all_branches: true

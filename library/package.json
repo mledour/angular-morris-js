@@ -1,0 +1,31 @@
+{
+  "name": "angular-morris-js",
+  "version": "0.0.0-semantic-release",
+  "homepage": "https://mledour.github.io/angular-morris-js/branches/master/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mledour/angular-morris-js.git"
+  },
+  "author": {
+    "name": "mledour",
+    "email": "michael.ledour@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "admin-lte"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mledour/angular-morris-js/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "~11.1.0",
+    "@angular/core": "~11.1.0",
+    "morris.js": "^0.5.0",
+    "jquery": "^3.2.1",
+    "raphael": "^2.2.7"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
