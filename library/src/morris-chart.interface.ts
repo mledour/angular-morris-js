@@ -66,4 +66,3 @@ export interface ChartLineOptions extends BaseChartAreaBarLineOptions {
 export interface ChartAreaOptions extends ChartLineOptions {
   behaveLikeLine?: boolean;
 }
-
