@@ -13,19 +13,17 @@ import { CoreModule } from './core/core.module';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
     CoreModule,
-    LoadingPageModule, MaterialBarModule,
+    LoadingPageModule,
+    MaterialBarModule,
     LayoutModule.forRoot(adminLteConf),
-    BoxModule
+    BoxModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -16,8 +16,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "libCopyFiles": "cp README.md LICENSE dist",
-    "build:lib": "ng-packagr -p src/ng-package.json && npm run libCopyFiles"
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
+    "prettier:check": "prettier --config .prettierrc.yml --check --ignore-unknown .",
+    "prettier:write": "prettier --config .prettierrc.yml --write --ignore-unknown ."
   },
   "repository": {
     "type": "git",
@@ -65,6 +66,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "morris.js": "^0.5.0",
+    "prettier": "^2.2.1",
     "ng-packagr": "^11.0.0",
     "protractor": "~7.0.0",
     "semantic-release": "^17.3.7",

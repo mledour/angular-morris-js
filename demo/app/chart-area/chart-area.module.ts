@@ -9,12 +9,7 @@ import { ChartAreaRoutingModule } from './chart-area-routing.module';
 import { ChartAreaComponent } from './chart-area.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BoxModule,
-    MorrisJsModule,
-    ChartAreaRoutingModule
-  ],
-  declarations: [ChartAreaComponent]
+  imports: [CommonModule, BoxModule, MorrisJsModule, ChartAreaRoutingModule],
+  declarations: [ChartAreaComponent],
 })
-export class ChartAreaModule { }
+export class ChartAreaModule {}

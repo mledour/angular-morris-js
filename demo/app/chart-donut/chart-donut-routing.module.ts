@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ChartDonutComponent } from './chart-donut.component';
 
-const routes: Routes = [{
-  path: '',
-  component: ChartDonutComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: ChartDonutComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ChartDonutRoutingModule { }
+export class ChartDonutRoutingModule {}

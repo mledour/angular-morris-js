@@ -7,57 +7,57 @@ const routes: Routes = [
   {
     path: '',
     data: {
-        title: 'Get Started',
-        icon: 'fa fa-home',
-        breadcrumb: ' ',
+      title: 'Get Started',
+      icon: 'fa fa-home',
+      breadcrumb: ' ',
     },
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'area-chart',
-        loadChildren: () => import('./chart-area/chart-area.module').then(m => m.ChartAreaModule),
+        loadChildren: () => import('./chart-area/chart-area.module').then((m) => m.ChartAreaModule),
         data: {
           title: 'Area Chart',
           icon: '',
-          breadcrumbs: 'area chart'
-        }
+          breadcrumbs: 'area chart',
+        },
       },
       {
         path: 'line-chart',
-        loadChildren: () => import('./chart-line/chart-line.module').then(m => m.ChartLineModule),
+        loadChildren: () => import('./chart-line/chart-line.module').then((m) => m.ChartLineModule),
         data: {
           title: 'Line Chart',
           icon: '',
-          breadcrumbs: 'line chart'
-        }
+          breadcrumbs: 'line chart',
+        },
       },
       {
         path: 'bar-chart',
-        loadChildren: () => import('./chart-bar/chart-bar.module').then(m => m.ChartBarModule),
+        loadChildren: () => import('./chart-bar/chart-bar.module').then((m) => m.ChartBarModule),
         data: {
           title: 'bar Chart',
           icon: '',
-          breadcrumbs: 'bar chart'
-        }
+          breadcrumbs: 'bar chart',
+        },
       },
       {
         path: 'donut-chart',
-        loadChildren: () => import('./chart-donut/chart-donut.module').then(m => m.ChartDonutModule),
+        loadChildren: () => import('./chart-donut/chart-donut.module').then((m) => m.ChartDonutModule),
         data: {
           title: 'Donut Chart',
           icon: '',
-          breadcrumbs: 'donut chart'
-        }
-      }
-    ]
-  }
+          breadcrumbs: 'donut chart',
+        },
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

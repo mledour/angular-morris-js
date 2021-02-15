@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ChartBarComponent } from './chart-bar.component';
 
-const routes: Routes = [{
-  path: '',
-  component: ChartBarComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: ChartBarComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ChartBarRoutingModule { }
+export class ChartBarRoutingModule {}

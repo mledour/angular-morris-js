@@ -1,5 +1,5 @@
 <mk-box lteTitle="Demo" [isCollapsable]="false" [isRemovable]="false">
-  <div mk-morris-js [options]="chartDonutOptions" [data]="chartDonutData" type="Donut" style="height: 500px; width: 100%;"></div>
+  <div mk-morris-js [options]="chartDonutOptions" [data]="chartDonutData" type="Donut" style="height: 500px; width: 100%"></div>
 </mk-box>
 
 <mk-box lteTitle="Usage" [isCollapsable]="false" [isRemovable]="false">
@@ -9,13 +9,9 @@
 <mk-box lteTitle="Datas" [isCollapsable]="true" [isRemovable]="false">
   <p>
     This is an array of objects, containing x and y attributes as described by the <code>xkey</code> and <code>ykeys</code> options.
-    <br>
-    <em>
-      Note: by default, the segment with the greatest value will
-      be initially selected.  You can change the selection using
-      the </em><code>select(<em>index</em>)</code><em> method on
-      the object returned by </em><code>Morris.Donut</code><em>.
-    </em>
+    <br />
+    <em> Note: by default, the segment with the greatest value will be initially selected. You can change the selection using the </em
+    ><code>select(<em>index</em>)</code><em> method on the object returned by </em><code>Morris.Donut</code><em>. </em>
   </p>
   <pre><code class="language-html">let chartAreaData = [
   &#123;label: "Download Sales", value: 12&#125;,
@@ -30,36 +26,28 @@
       <tr>
         <td><code>colors</code></td>
         <td>
-          An array of strings containing HTML-style hex colors for each
-          of the donut segments.
-          <em>
-            Note: if there are fewer colors than segments, the colors
-            will cycle back to the start of the array when exhausted.
-          </em>
+          An array of strings containing HTML-style hex colors for each of the donut segments.
+          <em> Note: if there are fewer colors than segments, the colors will cycle back to the start of the array when exhausted. </em>
         </td>
       </tr>
       <tr>
         <td><code>formatter</code></td>
         <td>
-          A function that will translate a y-value into a label for
-          the centre of the donut.
-          <br>
+          A function that will translate a y-value into a label for the centre of the donut.
+          <br />
           eg: currency <code>function (y, <em>data</em>) &#123; return '$' + y &#125;</code>
-          <br>
+          <br />
           <em>
-            Note: if required, the method is also passed an optional second
-            argument, which is the complete data row for the given value.
+            Note: if required, the method is also passed an optional second argument, which is the complete data row for the given value.
           </em>
         </td>
       </tr>
       <tr>
         <td><code>resize</code></td>
         <td>
-          Set to <code>true</code> to enable automatic resizing when the
-          containing element resizes. (default: false).
-          <br>
-          This has a significant performance impact, so is disabled by
-          default.
+          Set to <code>true</code> to enable automatic resizing when the containing element resizes. (default: false).
+          <br />
+          This has a significant performance impact, so is disabled by default.
         </td>
       </tr>
     </tbody>

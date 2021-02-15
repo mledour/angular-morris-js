@@ -9,12 +9,7 @@ import { ChartLineRoutingModule } from './chart-line-routing.module';
 import { ChartLineComponent } from './chart-line.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ChartLineRoutingModule,
-    BoxModule,
-    MorrisJsModule,
-  ],
-  declarations: [ChartLineComponent]
+  imports: [CommonModule, ChartLineRoutingModule, BoxModule, MorrisJsModule],
+  declarations: [ChartLineComponent],
 })
-export class ChartLineModule { }
+export class ChartLineModule {}

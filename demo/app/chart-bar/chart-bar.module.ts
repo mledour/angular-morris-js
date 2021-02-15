@@ -9,12 +9,7 @@ import { ChartBarRoutingModule } from './chart-bar-routing.module';
 import { ChartBarComponent } from './chart-bar.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ChartBarRoutingModule,
-    BoxModule,
-    MorrisJsModule
-  ],
-  declarations: [ChartBarComponent]
+  imports: [CommonModule, ChartBarRoutingModule, BoxModule, MorrisJsModule],
+  declarations: [ChartBarComponent],
 })
-export class ChartBarModule { }
+export class ChartBarModule {}

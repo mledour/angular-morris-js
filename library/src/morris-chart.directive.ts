@@ -1,17 +1,37 @@
-import { Directive, AfterViewInit, OnInit, OnDestroy, Input, ElementRef, NgZone, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import {
+  Directive,
+  AfterViewInit,
+  OnInit,
+  OnDestroy,
+  Input,
+  ElementRef,
+  NgZone,
+  OnChanges,
+  SimpleChanges,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
-import {ChartDonutOptions, ChartLineOptions, ChartBarOptions, ChartAreaOptions, ChartDonutData, ChartLineData, ChartBarData, ChartAreaData} from './morris-chart.interface';
+import {
+  ChartDonutOptions,
+  ChartLineOptions,
+  ChartBarOptions,
+  ChartAreaOptions,
+  ChartDonutData,
+  ChartLineData,
+  ChartBarData,
+  ChartAreaData,
+} from './morris-chart.interface';
 
 interface BaseChartConfig<Data> {
   element: Element;
   data: Data;
 }
 
-type ChartConfig<Options, Data> =  Options & BaseChartConfig<Data>
+type ChartConfig<Options, Data> = Options & BaseChartConfig<Data>;
 
 @Directive()
 export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-
   @Input() type!: 'Line' | 'Area' | 'Bar' | 'Donut';
   @Output() clickChart = new EventEmitter();
 
@@ -22,20 +42,20 @@ export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterVie
   protected data?: Data;
   protected options?: Options;
 
-  constructor(
-    private elementRef: ElementRef,
-    private ngZone: NgZone
-  ) {}
+  constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
 
   ngOnInit(): void {
-    this.morrisConfig = Object.assign({
-      element: this.elementRef.nativeElement,
-      data: this.data,
-    }, this.options) as ChartConfig<Options, Data>;
+    this.morrisConfig = Object.assign(
+      {
+        element: this.elementRef.nativeElement,
+        data: this.data,
+      },
+      this.options
+    ) as ChartConfig<Options, Data>;
   }
 
   ngAfterViewInit(): void {
-    if(!this.window.Morris) {
+    if (!this.window.Morris) {
       throw new Error('Please include node_modules/morris.js/morris.js');
     } else {
       this.ngZone.runOutsideAngular(() => {
@@ -48,7 +68,7 @@ export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterVie
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if((changes.data && !changes.data.firstChange) || (changes.options && !changes.options.firstChange)) {
+    if ((changes.data && !changes.data.firstChange) || (changes.options && !changes.options.firstChange)) {
       Object.assign(this.chartInstance.options, this.options);
       this.chartInstance.setData(this.data);
     }
@@ -62,7 +82,7 @@ export class BaseMorrisChartDirective<Options, Data> implements OnInit, AfterVie
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Line"]'
+  selector: '[mk-morris-js][type="Line"]',
 })
 export class MorrisLineChartDirective extends BaseMorrisChartDirective<ChartLineOptions, ChartLineData[]> {
   @Input() options!: ChartLineOptions;
@@ -70,7 +90,7 @@ export class MorrisLineChartDirective extends BaseMorrisChartDirective<ChartLine
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Bar"]'
+  selector: '[mk-morris-js][type="Bar"]',
 })
 export class MorrisBarChartDirective extends BaseMorrisChartDirective<ChartBarOptions, ChartBarData[]> {
   @Input() options!: ChartBarOptions;
@@ -78,7 +98,7 @@ export class MorrisBarChartDirective extends BaseMorrisChartDirective<ChartBarOp
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Donut"]'
+  selector: '[mk-morris-js][type="Donut"]',
 })
 export class MorrisDonutChartDirective extends BaseMorrisChartDirective<ChartDonutOptions, ChartDonutData[]> {
   @Input() options!: ChartDonutOptions;
@@ -86,7 +106,7 @@ export class MorrisDonutChartDirective extends BaseMorrisChartDirective<ChartDon
 }
 
 @Directive({
-  selector: '[mk-morris-js][type="Area"]'
+  selector: '[mk-morris-js][type="Area"]',
 })
 export class MorrisAreaChartDirective extends BaseMorrisChartDirective<ChartAreaOptions, ChartAreaData[]> {
   @Input() options!: ChartAreaOptions;

@@ -7,6 +7,6 @@ import { SidebarLeftInnerComponent } from './sidebar-left-inner/sidebar-left-inn
 @NgModule({
   imports: [CommonModule],
   declarations: [SidebarLeftInnerComponent],
-  exports: [BrowserAnimationsModule, SidebarLeftInnerComponent]
+  exports: [BrowserAnimationsModule, SidebarLeftInnerComponent],
 })
 export class CoreModule {}

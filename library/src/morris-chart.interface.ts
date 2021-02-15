@@ -4,7 +4,7 @@ export interface ChartDonutData {
 }
 
 export interface ChartBarData {
-  [key: string]: unknown
+  [key: string]: unknown;
 }
 
 export type ChartLineData = ChartBarData;

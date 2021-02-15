@@ -9,12 +9,7 @@ import { ChartDonutRoutingModule } from './chart-donut-routing.module';
 import { ChartDonutComponent } from './chart-donut.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ChartDonutRoutingModule,
-    BoxModule,
-    MorrisJsModule
-  ],
-  declarations: [ChartDonutComponent]
+  imports: [CommonModule, ChartDonutRoutingModule, BoxModule, MorrisJsModule],
+  declarations: [ChartDonutComponent],
 })
-export class ChartDonutModule { }
+export class ChartDonutModule {}
