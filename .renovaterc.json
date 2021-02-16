@@ -1,3 +1,36 @@
 {
-  "extends": ["config:base", "group:all"]
+  "extends": ["config:base", "group:all"],
+  "packageRules": [
+    {
+      "packagePatterns": ["angular-morris-js"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "packagePatterns": ["angular-morris-js"],
+      "depTypeList": ["devDependencies"],
+      "rangeStrategy": "pin"
+    },
+    {
+      "packagePatterns": ["angular-morris-js"],
+      "depTypeList": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "packagePatterns": ["angular-morris-js-demo"],
+      "rangeStrategy": "replace",
+      "semanticCommitType": "chore"
+    },
+    {
+      "packagePatterns": ["angular-morris-js-demo"],
+      "depTypeList": ["devDependencies"],
+      "rangeStrategy": "pin",
+      "semanticCommitType": "chore"
+    },
+    {
+      "packagePatterns": ["angular-morris-js-demo"],
+      "depTypeList": ["peerDependencies"],
+      "rangeStrategy": "widen",
+      "semanticCommitType": "chore"
+    }
+  ]
 }
