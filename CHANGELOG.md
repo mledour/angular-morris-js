@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/mledour/angular-morris-js/compare/v2.0.0...v2.0.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo ([ff0e5c9](https://github.com/mledour/angular-morris-js/commit/ff0e5c9fa811593891b9c0e93a23945e56dd8996))
+
 # [2.0.0](https://github.com/mledour/angular-morris-js/compare/v1.1.0...v2.0.0) (2021-02-15)
 
 
