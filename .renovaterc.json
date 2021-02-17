@@ -3,7 +3,7 @@
   "packageRules": [
     {
       "matchPaths": ["library/package.json"],
-      "matchPackagePatterns": ["^@angular\\/.*"],
+      "matchPackagePatterns": ["^@angular/"],
       "enabled": false
     },
     {
@@ -15,6 +15,15 @@
       "matchPaths": ["library/package.json"],
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "replace"
+    },
+    {
+      "matchPaths": ["package.json"],
+      "semanticCommitType": "chore"
+    },
+    {
+      "matchPaths": ["package.json"],
+      "matchPackagePatterns": ["^@angular/", "^ng\\-packagr$", "typescript"],
+      "semanticCommits": "auto"
     }
   ]
 }
