@@ -1,3 +1,20 @@
 {
-  "extends": ["config:base", "group:all"]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchPaths": ["library/package.json"],
+      "matchPackagePatterns": ["^@angular\\/.*"],
+      "enabled": false
+    },
+    {
+      "matchPaths": ["library/package.json"],
+      "matchPackageNames": ["tslib"],
+      "enabled": false
+    },
+    {
+      "matchPaths": ["library/package.json"],
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "replace"
+    }
+  ]
 }
